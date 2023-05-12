@@ -13,18 +13,35 @@ numToMem.innerHTML = `I numeri da memorizzare sono: ${genNum}`;
 
 // timer 30 secondi
 const timer = document.getElementById("timer");
-let seconds = 10;
+let seconds = 30;
 
-// scomparsa numeri
+// timing function
 let clock = setInterval (
     function () {
 
+        // scorrimento timer
         timer.innerHTML = `Timer: ${seconds}`;
-        if (seconds === 0) {
+        if (seconds != 0) {
+            seconds--;
+        }else { 
+            // scomparsa numeri
             clearInterval(clock);
             numToMem.innerHTML = "";
-        }else {
-            seconds--;
+
+            // inserimento numeri memorizzati
+            for (let i = 0; i < 5; i++) {
+                const numReq = parseInt(prompt("Inserisci i numeri visualizzati."));
+
+                // numeri corretti
+               if (genNum.includes(numReq)) {
+                    const correctNum = document.getElementById("correct");
+                    correctNum.innerHTML += numReq + " ";
+                } else {
+                    // numeri sbagliati
+                    const wrongNum = document.getElementById("wrong");
+                    wrongNum.innerHTML += numReq + " ";
+                }
+            }
         }
     }
     ,

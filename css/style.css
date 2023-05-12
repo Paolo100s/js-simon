@@ -8,3 +8,13 @@
     background-color: #000;
     color: yellow;
 }
+
+#correct {
+    background-color: aqua;
+    color: blue;
+}
+
+#wrong {
+    background-color: tomato;
+    color: red;
+}
