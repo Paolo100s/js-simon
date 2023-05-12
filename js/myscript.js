@@ -11,6 +11,27 @@ const numToMem = document.getElementById("memory");
 const genNum = createRandomArr (5, 1, 100);
 numToMem.innerHTML = `I numeri da memorizzare sono: ${genNum}`;
 
+// timer 30 secondi
+const timer = document.getElementById("timer");
+let seconds = 10;
+
+// scomparsa numeri
+let clock = setInterval (
+    function () {
+
+        timer.innerHTML = `Timer: ${seconds}`;
+        if (seconds === 0) {
+            clearInterval(clock);
+            numToMem.innerHTML = "";
+        }else {
+            seconds--;
+        }
+    }
+    ,
+    1000
+)
+
+
 
 // FUNZIONI
 // creazione numeri random
